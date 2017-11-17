@@ -5,3 +5,18 @@ Fulfill the below user stories. Use whichever libraries or APIs you need. Give i
 User Story: I can click a button to show me a new random quote.
 
 User Story: I can press a button to tweet out a quote.
+
+
+/* -- TO-DO -- */ 
+
+Locate API for bank of quotes
+Locate API for twitter 
+* Bonus Locate API for facebook
+Design single page interface
+    large box 
+        box to display quote
+        possible separate area to display quote author (depending on format of quotes in given API bank)
+        button to share to twitter (and facebook)
+    button below box to load next quote
+    
+Responsive
