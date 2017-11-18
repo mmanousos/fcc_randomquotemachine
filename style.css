@@ -73,25 +73,37 @@ p {
 
 
 /* -------------------- */
-/*         BUTTON       */
+/*         BUTTONS       */
 /* -------------------- */
 
 
 .btn {
-    padding: 15px;
     border-radius: 5px;
-    background-color: #407f7f;
-    border-color: #226666;
     font-size: 100%;
     cursor: pointer;
+}
+
+.new-quote-btn {
+    padding: 15px;
+    background-color: #407f7f;
+    border-color: #226666;
     color: #ededed;
 }
 
-
-.btn a {
-    text-decoration: none;
-    color: #ededed;
+.twitter-btn {
+    background-color: #003333;
 }
+
+.twitter-btn img {
+    width: 43%;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+
+
+
+
 
 
 
