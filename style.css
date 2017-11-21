@@ -25,7 +25,7 @@ a:active {
 }
 
 .jumbo {
-    text-align: center;
+    text-align: left;
     margin-bottom: 0;
 }
 
@@ -46,11 +46,19 @@ a:active {
     margin-top: 20px;
 }
 
+#quote-mark {
+    width: 25px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
 .quote-text {
     color: #226666;  
     text-align: left;
     font-size: 120%;
     margin-bottom: 10px;
+    vertical-align: bottom;
+    
 }
 
 .author {
@@ -85,6 +93,10 @@ p {
     background-color: #407f7f;
     border-color: #226666;
     color: #ededed;
+}
+
+#new-quote {
+    text-align: center; 
 }
 
 .twitter-btn {
