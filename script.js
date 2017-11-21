@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  
+    
     // load first quote on page ready
     $("#new-quote").on("click", function() {
         "https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en"
@@ -8,10 +10,19 @@ $(document).ready(function() {
           newQuote += "<div class='newQuote'>";
           newQuote += val.quoteText;
           newQuote += "</div>";
-    
-      $("#quoteText").html(newQuote);
+      
+        var authorName = val.quoteAuthor; 
+        var newAuth = "";
+            newAuth += "<div class='newAuth'>"; 
+            newAuth += val.quoteAuthor; 
+            newAuth += "</div>";    
+                console.log(authorName);
+      
+            $("#quoteText").html(newQuote);
+            $("author").html(newAuth);
+      
       });
-        //$("#quoteText").html("this is the new quote!");
+        
     });
     
 });
