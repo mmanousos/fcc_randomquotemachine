@@ -35,25 +35,22 @@ a:active {
 
 .back {
     background-color: #226666;
-    /* width: 50%; */
-    height: 300px;
+    height: 350px;
     margin-top: 30px;
 }
 
-
 .quote {
     width: 90%;
-    height: 200px;
+    height: 250px;
     background-color: #bfbfbf;
     margin-top: 20px;
-    padding-top: 5px;
 }
 
 .quote-text {
-    color: #000;  
+    color: #226666;  
     text-align: left;
-    font-size: 150%;
-    margin-bottom: 20px;
+    font-size: 120%;
+    margin-bottom: 10px;
 }
 
 .author {
