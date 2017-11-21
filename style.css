@@ -49,6 +49,12 @@ a:active {
     padding-bottom: 20px;
     background-color: #bfbfbf;
     margin-top: 20px;
+    /* bevel */
+    
+    -moz-box-shadow: inset 0 -1px 1px rgba(70, 37, 37, 0.5);
+    -webkit-box-shadow: inset 0 -1px 1px rgba(70, 37, 37, 0.5);
+    box-shadow: inset 0 -1px 1px rgba(70, 37, 37, 0.5), /*bottom internal shadow*/
+                inset 0 1px 1px rgb(211, 211, 211); /*top internal highlight*/
 }
 
 #quote-mark {
@@ -83,7 +89,7 @@ p {
 
 
 /* -------------------- */
-/*         BUTTONS       */
+/*         BUTTONS      */
 /* -------------------- */
 
 
