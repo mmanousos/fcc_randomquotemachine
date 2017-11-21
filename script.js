@@ -3,7 +3,7 @@ $(document).ready(function() {
     $("#new-quote").on("click", function() {
         "https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en"
         
-        $.getJSON("https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en", function(json) {
+        $.getJSON("https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en", function(val) {
         var newQuote = "";
           newQuote += "<div class='newQuote'>";
           newQuote += val.quoteText;
