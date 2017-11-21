@@ -1,46 +1,44 @@
 $(document).ready(function() {
-  
+  /*  pushQuote(); */
+    
+   /* function pushQuote() {
+        $.getJSON("https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en", function(val) {
+        var getQuote = val.quoteText;    
+        var newQuote = ""; 
+        var getAuth = val.quoteAuthor;  
+        var newAuth = "";
+            newQuote += ("<div class='newQuote'>" + getQuote + "</div>");
+            newAuth += ("<div class='newAuth'>" + getAuth + "</div>");
+            
+        $("#quoteText").html(newQuote);
+        $("#quoteAuthor").html(newAuth);    
+    });
+};
+   */             
     
     // load first quote on page ready
-    $("#new-quote").on("click", function() {
-        "https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en"
-        
+    // function pushQuote() {
+       $("#new-quote").on("click", function() { 
         $.getJSON("https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en", function(val) {
         var newQuote = "";
-          newQuote += "<div class='newQuote'>";
-          newQuote += val.quoteText;
-          newQuote += "</div>";
-      
+          newQuote += "<div class='newQuote'>" + val.quoteText + "</div>";
+            
         var authorName = val.quoteAuthor; 
         var newAuth = "";
-            newAuth += "<div class='newAuth'>"; 
-            newAuth += val.quoteAuthor; 
-            newAuth += "</div>";    
-                console.log(authorName);
+            newAuth += "<div class='newAuth'> - " + val.quoteAuthor + "</div>"; 
+                 console.log(authorName); 
       
-            $("#quoteText").html(newQuote);
-            $("author").html(newAuth);
+            $("#quoteText").html(newQuote); 
+            $("#quoteAuthor").html(newAuth);
       
       });
-        
-    });
-    
+       });
 });
-  // });
-/*
- $(document).ready(function() {
-    $("#getMessage").on("click", function() {
-      $.getJSON("/json/cats.json", function(json) {
-        var html = "";
-        json.forEach(function(val) {
-          html += "<div class = 'cat'>";
-          html += "<img src = '" + val.imageLink + "' " + "alt='" + val.altText + "'>";
-          html += "</div>";
-        });
-        $(".message").html(html);
-      });
-    });
-  });
-*/
+   // };
+    // pushQuote();
+    // $("#new-quote").on("click", function() {
+       // pushQuote();
+//    });
+
 
 
