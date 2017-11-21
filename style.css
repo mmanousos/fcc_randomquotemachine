@@ -11,8 +11,13 @@ body {
     text-align: center;
 }
 
-h1, 
-h2,
+h1 {
+    color: #226666;
+    text-align: center;
+    margin-top: 20px; 
+} 
+
+
 a:link,
 a:visited {
   color: #669999; 
@@ -36,7 +41,7 @@ a:active {
 .back {
     background-color: #226666;
     height: auto;
-    margin-top: 30px;
+    margin-top: 10px;
     
 }
 .main {
