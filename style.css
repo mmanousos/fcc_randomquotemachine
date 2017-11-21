@@ -111,7 +111,7 @@ p {
     color: #ededed;
 }
 
-#new-quote {
+.new-button {
     text-align: center; 
 }
 
