@@ -1,8 +1,9 @@
 $(document).ready(function() {
     // load first quote on page ready
     $("#new-quote").on("click", function() {
+        "https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en"
         
-        $.getJSON("http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en", function(json) {
+        $.getJSON("https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en", function(json) {
         var newQuote = "";
           newQuote += "<div class='newQuote'>";
           newQuote += val.quoteText;
