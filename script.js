@@ -1,7 +1,9 @@
-var newQuote; // create new variable for newQuote to return in tweets. this needs to be outside the scope of the rest of the function or it will not be accessible on the global scope. 
-$(document).ready(function() { // wait for page to load
+ $(document).ready(function() { // wait for page to load
   
-   function loadQuote(quoteObject) { // describes where to push the quote on the page
+    var newQuote; // create new variable for newQuote to return in tweets. this needs to be outside the scope of a specific function or it will not be accessible on the global scope. 
+
+    
+    function loadQuote(quoteObject) { // describes where to push the quote on the page and which values to pull
         newQuote = quoteObject;      // the new quoteObject becomes newQuote
         $("#quoteText").html("" + quoteObject.quoteVal + "");  // the quote goes into the quote box
         $("#quoteAuthor").html(" -" + quoteObject.authVal + ""); // the name of the author goes into the column for the author
@@ -20,11 +22,14 @@ $(document).ready(function() { // wait for page to load
         var quoteObject = { // create quoteObject that can hold these values after this function runs
           quoteVal: quote,   
           authVal: authName     
-        };
-             return loadQuote(quoteObject);  // return the object in the predefined function
+        }; 
+            loadQuote(quoteObject);  // execute the object in the predefined function
+             
+             /* alternate more efficient process - do not define the object, but simply create it as the parameter passed to function when calling the function. Saves several lines of code but need to understand that this is identical to what is happening above. 
+             loadQuote( {quoteVal: quote, authVal: authName}); */
         });
     }
-    getQuote(); // run function
+    getQuote(); // run function to gather values and push to html doc
     
 
     // functionality of "new quote" button
