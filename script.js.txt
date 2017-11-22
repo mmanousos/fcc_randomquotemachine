@@ -44,7 +44,36 @@ $(document).ready(function() {
     
 });
     
+** additional notes from Lucas:
 
-             
+Sorry. The code is working but some improvements are needed. My bad.
+You don't need to return the loadQuote function. You just need to call it passing the quoteObject as parameter. Actually, you can just use the {  } as parameters, you don't need to create the variable var quoteObject = { }
+
+I created the variable "newQuote" outside "document.ready" because first I had moved all functions to outside "document.ready". Then I realized that I should make the minimum changes in your code to make it work, but I forgot to move the variable too. You can move the "newQuote" declaration to inside "document.ready" to a position just before using it.
+
+About the order of declaration and call of getQuote and loadQuote: loadQuote can be declared after getQuote in this case because getQuote only calls "loadQuote" after executing an asynchronous ajax request.  In other words, the browser continues to execute the js file and reaches out the "loadQuote" declaration before executing it. So when the ajax request is done, the browser has already the definition of "loadQuote" in memory and can execute it.
+
+I would move the loadQuote function declaration up just to avoid any further issues with it.
+
+
+
+** more notes from Lucas to clarify first paragraph of above. 
+
+You just need to do that:
+
+$.getJSON(url, function(val) {
+   var quote = val.quoteText; 
+   var authName = val.quoteAuthor; 
+   if (authName === "") {
+       authName = "Anonymous";
+   };
+            
+   loadQuote({ quoteVal: quote, authVal: authName });
+});
+
+You don't need to return loadQuote, because in anyway it is just calling loadQuote. 
+And you don't need to create quoteObject as well, so you can pass the value of quoteObject directly as a parameter to the function loadQuote.
+Another suggestion is to remove the duplication of code to check if the authName is "" and assign Anonymous to it. You have this condition in two places.
+It is just to make code more clear and simple.
 
 
