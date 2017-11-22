@@ -1,0 +1,50 @@
+Corrected Solution from Lucas
+
+var newQuote;
+$(document).ready(function() {
+  
+     
+    function getQuote() {
+        var url = "https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en"; 
+         $.getJSON(url, function(val) {
+           var quote = val.quoteText; 
+           var authName = val.quoteAuthor; 
+            if (authName === "") {
+                authName = "Anonymous";
+            };
+             
+        var quoteObject = {
+          quoteVal: quote,   
+          authVal: authName     
+        };
+             return loadQuote(quoteObject);
+        });
+    }
+    getQuote();
+    
+    
+    function loadQuote(quoteObject) {  
+        newQuote = quoteObject;  
+        $("#quoteText").html("" + quoteObject.quoteVal + ""); 
+        $("#quoteAuthor").html(" -" + quoteObject.authVal + "");
+    }
+    
+    $("#new-quote").on("click", function() {
+            getQuote(); 
+    });
+    
+    
+    $("#twitter-button").on("click", function(){
+            if (newQuote["authVal"] === "") {
+                newQuote["authVal"] = "Anonymous";
+            };
+            
+            window.open("https://twitter.com/intent/tweet?text=via%20Random%20Quote%20Machine%20by%20@therealmprove%20-%20I%20wanted%20to%20share%20this%20quote: '" + newQuote.quoteVal + "' -" + newQuote.authVal); 
+    });
+    
+});
+    
+
+             
+
+
