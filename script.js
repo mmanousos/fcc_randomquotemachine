@@ -1,53 +1,41 @@
-
-$(document).ready(function() {
+var newQuote; // create new variable for newQuote to return in tweets. this needs to be outside the scope of the rest of the function or it will not be accessible on the global scope. 
+$(document).ready(function() { // wait for page to load
   
-     
+   function loadQuote(quoteObject) { // describes where to push the quote on the page
+        newQuote = quoteObject;      // the new quoteObject becomes newQuote
+        $("#quoteText").html("" + quoteObject.quoteVal + "");  // the quote goes into the quote box
+        $("#quoteAuthor").html(" -" + quoteObject.authVal + ""); // the name of the author goes into the column for the author
+    }
+
+    
     function getQuote() {
-        var url = "https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en"; 
-         $.getJSON(url, function(val) {
-           var quote = val.quoteText; 
-           var authName = val.quoteAuthor; 
-            if (authName === "") {
-                authName = "Anonymous";
+        var url = "https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en";  // the website hosting the quotes
+         $.getJSON(url, function(val) { // access the website and pull their values
+           var quote = val.quoteText;  // assign the quote value to a variable
+           var authName = val.quoteAuthor;  // assign the author name to a variable
+            if (authName === "") {      // check if the author name is blank 
+                authName = "Anonymous"; // if so attribute it to "anonymous"
             };
              
-        var quoteObject = {
+        var quoteObject = { // create quoteObject that can hold these values after this function runs
           quoteVal: quote,   
           authVal: authName     
         };
-             return quoteObject;
+             return loadQuote(quoteObject);  // return the object in the predefined function
         });
     }
-    getQuote();
+    getQuote(); // run function
     
-    
-    function loadQuote() {    
-        $("#quoteText").html("" + quoteObject.quoteVal + ""); 
-        $("#quoteAuthor").html(" -" + quoteObject.authVal + "");
-    }
-    loadQuote();
-    
-    $("#new-quote").on("click", function() {
-            loadQuote(); 
+
+    // functionality of "new quote" button
+    $("#new-quote").on("click", function() { 
+            getQuote(); 
     });
     
     
-    $("#twitter-button").on("click", function(){
-            if (newQuote[authName] === "") {
-                newQuote[authName] = "Anonymous";
-            };
-            
-            window.open("https://twitter.com/intent/tweet?text=via%20Random%20Quote%20Machine%20by%20@therealmprove%20-%20I%20wanted%20to%20share%20this%20quote: '" + quoteObject.quoteVal + "' -" + quoteObject.authVal); 
+    //functionality of "tweet" button
+    $("#twitter-button").on("click", function(){ 
+            window.open('https://twitter.com/intent/tweet?text=I%20wanted%20to%20share%20this%20quote: "' + newQuote.quoteVal + '"-' + newQuote.authVal + ' --%20via%20Random%20Quote%20Machine%20by%20@therealmprove%20(a%20@freecodecamp%20project)'); 
     });
     
 });
-    
-
-             
-
-    
-    
-
-    
-  
-
